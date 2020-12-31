@@ -1,23 +1,23 @@
+import { authConstants } from "../constants";
+
 const initialState = {
     loggedIn : false,
-    accessToken: "",
-    firstName: "",
-    lastName: ""
+    access_token: "",
+    refresh_token: "",
 }
 
-export default function userReducer(state = initialState, action){
+export default function authReducer(state = initialState, action){
     switch (action.type) {
-        case 'user/loggedIn' : {
+        case authConstants.LOGGED_IN : {
             const user = action.payload
             return {
                 ...state,
                 loggedIn: true,
                 accessToken: user.accessToken,
-                firstName: user.firstName,
-                lastName: user.lastName
+                refreshToken: user.refreshToken,
             }
         }
-        case 'user/loggedOut' : {
+        case authConstants.LOGGED_OUT : {
             return initialState
         }
         default: {

@@ -2,11 +2,10 @@ import React, {Component} from "react"
 import {withAuth} from "../withAuth";
 
 class Home extends Component {
-    //TODO: Implement connector to the store
     render () {
         return (
             <h1>
-                Welcome {this.state.firstName} {this.state.lastName}
+                Welcome {this.props.first_name} {this.props.last_name}
             </h1>
         )
     }

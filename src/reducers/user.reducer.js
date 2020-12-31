@@ -5,13 +5,13 @@ const initialState = {
     last_name: "",
 }
 
-export function userInfoReducer (state = initialState, action) {
+export function userReducer (state = initialState, action) {
     switch (action.type) {
         case userConstants.USER_SET_INFO : {
             const user = action.payload
             return {
-                firstName: user.firstName,
-                lastName: user.lastName
+                first_name: user.first_name,
+                last_name: user.last_name
             }
         }
         default : {

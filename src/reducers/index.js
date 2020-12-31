@@ -1,3 +1,3 @@
-export userAuthReducer from '../reducers/user.auth.reducer'
-export userInfoReducer from '../reducers/user.info.reducer'
+export authReducer from './auth.reducer'
+export userInfoReducer from './user.reducer'
 export errorUserReducer from '../reducers/error.user.reducer'
