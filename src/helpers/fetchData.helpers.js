@@ -1,5 +1,8 @@
+import store from '../app/store'
 export async function fetchData(method, url = '', data = {}, auth = false) {
-    let response, bearerToken = 'Bearer' //TODO: Get Bearer from store
+    const authState = store.getState().auth
+    const bearer_token = authState.access_token
+    let response, bearerToken = 'Bearer ' + bearer_token
     const defaultOptions = {
         method: method,
         mode: 'cors',
