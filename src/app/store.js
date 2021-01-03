@@ -1,19 +1,19 @@
-import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
-import { authReducer, errorUserReducer } from '../reducers'
+import { combineReducers, configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { authReducer, userReducer, errorUserReducer } from '../reducers'
 import reduxPromise from 'redux-promise-middleware'
 
-const errorsReducer = configureStore({
+const errorsReducer = combineReducers({
     user : errorUserReducer
 })
 
-const userReducer = configureStore({
-    auth : authReducer
+const reducer = combineReducers({
+    auth : authReducer,
+    user : userReducer,
+    errors: errorsReducer,
 })
+
 const store = configureStore({
-    reducer: {
-        user: userReducer,
-        error: errorsReducer
-    },
+    reducer: reducer,
     middleware: [reduxPromise, ...getDefaultMiddleware()]
 });
 
