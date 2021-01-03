@@ -5,12 +5,12 @@ export async function fetchData(method, url = '', data = {}, auth = false) {
     let response, bearerToken = 'Bearer ' + bearer_token
     const defaultOptions = {
         method: method,
-        mode: 'cors',
+        mode: 'no-cors',
         cache: 'no-store',
         headers: {
             'Content-Type': 'application/json',
         },
-        redirect: 'error',
+        redirect: 'follow',
         referrerPolicy: 'no-referrer',
         body: JSON.stringify(data)
     }
