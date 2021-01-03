@@ -1,6 +1,7 @@
 import { fetchData } from '../helpers'
 import { errorUserActions } from './error.user.actions'
 import { authConstants, errorCodes } from '../constants'
+import store from '../app/store';
 
 const loggedIn = (data) => ({
     type: authConstants.LOGGED_IN,
@@ -12,9 +13,10 @@ const loggedOut = () => ({
 })
 
 const refreshToken = () => {
-    //TODO : Get refresh token from store
+    const authState = store.getState().auth
+    const refresh_token = authState.refresh_token
     const data = {
-        refresh_token: user.refresh_token
+        refresh_token: refresh_token
     }
     const tryRefreshingToken = fetchData('GET',"http://localhost:8080/api/refresh_token", data)
     return dispatch => {
@@ -100,6 +102,7 @@ const logout = () => {
                         },
                         (error) => {
                             dispatch(authErrorReceived(error))
+                            reject('Could not log out')
                         }
                     )
             })

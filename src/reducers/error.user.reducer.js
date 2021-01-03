@@ -5,7 +5,7 @@ const initialState = {
     auth_errors : {}
 }
 
-export default function errorUserReducer(state = initialState, action) {
+export function errorUserReducer(state = initialState, action) {
     switch (action.type) {
         case errorConstants.AUTHORIZATION_ERROR_ADD : {
             return {
