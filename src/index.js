@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import store from './app/store';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import store from './app/store'
 import App from './app/App'
-import { Provider } from 'react-redux';
-import * as serviceWorker from './serviceWorker';
+import { Provider } from 'react-redux'
+import * as serviceWorker from './serviceWorker'
 
 
 ReactDOM.render(
